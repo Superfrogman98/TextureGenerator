@@ -1,0 +1,25 @@
+input\buckets\bucket.png
+input\buckets\fluid.png
+_bucket.png
+C:\Users\frogm\source\repos\TextureGenerator\TextureGenerator\buckets\
+Intensity
+naptha| (168,20,44)
+benzene| (255,250,200)
+propene| (255,192,203)
+ethylene| (145,145,145)
+cyclohexylbenzene| (255,255,250)
+hydroxylamine| (255,255,255)
+phenol| (255,0,0)
+nylon| (248,248,255)
+bisphenol_a_feedstock| (255,255,255)
+bisphenol_a| (255,255,255)
+epoxy_resin| (4,99,7)
+epichlorohydrin| (253,253,150)
+isomeric_alchohol_mixture| (139,0,0)
+cumene| (255,255,250)
+cumene_hydroperoxide| (255,255,170)
+isoprene| (0,0,255)
+hydrofluoric_acid| (240,240,240)
+acetone| (102,88,98)
+mercury| (192,192,192)
+cyclohexanone| (255,255,100)

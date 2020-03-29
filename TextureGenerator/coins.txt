@@ -1,0 +1,14 @@
+input\blank.png
+input\frog.png
+_coin.png
+C:\Users\frogm\source\repos\TextureGenerator\TextureGenerator\coins\
+Intensity
+copper| (192,120,95)
+silver| (223,223,223)
+gold| (255,255,0)
+platinum| (185,194,202)
+black_steel| (76,79,79)
+stainless_steel| (172,172,172)
+titanium| (165,145,186) 
+tungsten| (105,98,91)
+bedrock| (61,63,64)
