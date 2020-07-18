@@ -9,6 +9,8 @@ nameSuffix = "image.png";
 baseFile = 'test.png';
 overlayFile = 'testOverlay.png';
 outputLoc = cwd+'images\\';
+nameSuffix = ".png"
+nameTransformLoc = cwd+'\\images\\nameTransform'+nameSuffix.replace(".png",".csv");
 colorMode = "Intensity";
 inputLines = [];
 colorStart = 5;
@@ -20,6 +22,8 @@ try:
     nameSuffix = inputLines[2].replace('\n','');
     outputLoc = inputLines[3].replace('\n','');
     colorMode = inputLines[4].replace('\n','');
+    if(colorMode != "Intensity"):
+        nameTransformLoc = inputLines[4].replace('\n','');
     inputFile.close();
 except IOError:
     print("File not accessible");  
@@ -61,10 +65,13 @@ for i in range(len(intensityMap)):
             print("     ", end ="");
     print ();
 print("Intensity Mode");
+nameOut = open(nameTransformLoc,"w");
+nameOut.write("OriginalName,TransformedName\n");
 for i in range (colorStart,len(inputLines)):
     line = inputLines[i].split('|');
     code = eval(line[1]);
-    print("Name: " + line[0] + " Base Color: " + str(code));
+    name = line[0].encode('ascii',errors='replace').decode().replace("?","-")
+    print("Name: " + name + " Base Color: " + str(code));
     code = (code[2],code[1],code[0]);#convert to BGR
     for rows in range(0,sizes[0]):
         for cols in range(0,sizes[1]):
@@ -76,12 +83,13 @@ for i in range (colorStart,len(inputLines)):
                 coloredOverlay[rows,cols] = [255,255,255,0];
     combinedImage= cv.bitwise_and(baseImage,coloredOverlay);
     cv.insertChannel(combinedAlphas,combinedImage,3);
-    cv.imwrite(outputLoc+line[0]+nameSuffix,combinedImage);
+    cv.imwrite(outputLoc+name+nameSuffix,combinedImage);
     #cv.imwrite(outputLoc+line[0]+"_overlay.png",coloredOverlay);
-   
+    nameOut.write(line[0]+","+name+"\n");
 #cv.imwrite(outputLoc+nameSuffix,cv.insertChannel(combinedAlphas,baseImage,3));
-print("Files output to: " + outputLoc);
-
+print("Image Files output to: " + outputLoc);
+print("Name Change File output to: " + nameTransformLoc);
+nameOut.close();
 #combinedImage= cv.bitwise_and(baseImage,overlayImage);
 #cv.insertChannel(combinedAlphas,combinedImage,3);
 #cv.imwrite(outputLoc+"Combined_Test.png",combinedImage);
