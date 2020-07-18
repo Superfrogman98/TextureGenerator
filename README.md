@@ -2,7 +2,7 @@
 A program that uses OpenCV and NumPy to generate output images using a background and an overlay image that get recolors by using an input file
 
 The program takes a text file as input to define variables  the format is as follows:
-
+```
 <static background image location>
 <intensity map image for colored overlay>
 <what to put after the name for the color in the output image>
@@ -15,8 +15,9 @@ The program takes a text file as input to define variables  the format is as fol
 ...
 <nameN>| (<redN>,<greenN>,<blueN>)
 ]
-
+```
 #See Below or frogs.txt as an example
+```
 input\blank.png
 input\frog.png
 _frog.png
@@ -30,3 +31,4 @@ crimson| (220,20,60)
 red| (255,0,0)
 tomato| (255,99,71)
 coral| (255,127,80)
+```
